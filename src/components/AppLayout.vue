@@ -11,16 +11,15 @@
         :default-active="activeMenu"
         :collapse="isCollapse"
         :collapse-transition="false"
-        router
         background-color="#1e293b"
         text-color="#94a3b8"
         active-text-color="#fff"
+        @select="handleMenuSelect"
       >
         <el-menu-item
           v-for="menu in filteredMenus"
           :key="menu.path"
           :index="menu.path"
-          :route="{ path: menu.path }"
         >
           <el-icon><component :is="menu.icon" /></el-icon>
           <template #title>{{ menu.title }}</template>
@@ -62,7 +61,7 @@
 
       <!-- 内容区 -->
       <el-main class="app-main">
-        <slot><RouterView /></slot>
+        <RouterView :key="route.fullPath" />
       </el-main>
     </el-container>
   </el-container>
@@ -104,6 +103,12 @@ const filteredMenus = computed(() =>
 
 function toggleCollapse() {
   isCollapse.value = !isCollapse.value
+}
+
+function handleMenuSelect(index: string) {
+  if (index !== route.path) {
+    router.push(index)
+  }
 }
 
 function handleCommand(cmd: string) {
