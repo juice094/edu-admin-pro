@@ -6,9 +6,12 @@
 [![ECharts](https://img.shields.io/badge/ECharts-5.0-AA344D?logo=apacheecharts)](https://echarts.apache.org/)
 [![Element Plus](https://img.shields.io/badge/Element%20Plus-2.9-409EFF)](https://element-plus.org/)
 
-> A production-ready academic administration dashboard built with Vue 3, Vite, TypeScript, and ECharts. Features data visualization, complete student CRUD operations, form validation, undo-delete, and enterprise-level engineering practices.
+> A curated archive of student-era course designs and classroom demos. Covers data visualization, agricultural IT, and cyber security — from Vue 3 dashboards to pure HTML5 prototypes.
 
-This repository archives various course design projects and classroom demos from my student years.
+**Featured Projects**
+- [`projects/bigdata-visualization`](./projects/bigdata-visualization) — Academic admin dashboard with Vue 3, Vite, TypeScript, ECharts. Features data visualization, complete CRUD, form validation, undo-delete, and enterprise-level engineering practices.
+- [`demos/agri-kg-demo`](./demos/agri-kg-demo) — Agricultural knowledge graph visualization.
+- [`demos/cyber-security-webui`](./demos/cyber-security-webui) — Cyber security Web UI demo with PWA support.
 
 ## Project Index
 
