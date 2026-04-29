@@ -44,11 +44,13 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vue-vendor': ['vue', 'vue-router', 'pinia'],
-          'ui-vendor': ['element-plus'],
-          'icons-vendor': ['@element-plus/icons-vue'],
-          'echarts-vendor': ['echarts', 'vue-echarts']
+        manualChunks: (id: string) => {
+          if (id.includes('node_modules')) {
+            if (['vue', 'vue-router', 'pinia'].some(pkg => id.includes(pkg))) return 'vue-vendor'
+            if (id.includes('element-plus') && !id.includes('icons')) return 'ui-vendor'
+            if (id.includes('@element-plus/icons-vue')) return 'icons-vendor'
+            if (id.includes('echarts') || id.includes('vue-echarts')) return 'echarts-vendor'
+          }
         }
       }
     }
